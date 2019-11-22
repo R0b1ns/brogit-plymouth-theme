@@ -5,9 +5,9 @@ Plymouth Splash Theme - Modified Debian 10 FuturePrototype Theme
 
 ## Getting Started
 
-- Use **preview.sh** to view actual Plymouth splash
+- Use `sudo preview.sh` to view actual Plymouth splash
 
-- If you cant see any splash u have to activate it first in **grub** _/etc/default/grub_
+- If you cant see any splash you have to activate it first in **grub** _/etc/default/grub_
 
 	```
 	GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
