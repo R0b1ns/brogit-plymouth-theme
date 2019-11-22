@@ -16,6 +16,6 @@ Plymouth Splash Theme - Modified Debian 10 FuturePrototype Theme
 ## Install
 
 ```
-sudo cp ./brogit-plymouth-theme /usr/share/plymouth/themes/
+sudo cp -R ./brogit-plymouth-theme /usr/share/plymouth/themes/
 sudo plyouth-set-default-theme brogit-plymouth-theme -R
 ```
