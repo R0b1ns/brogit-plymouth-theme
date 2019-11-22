@@ -5,4 +5,4 @@ ModuleName=script
 
 [script]
 ImageDir=/usr/share/plymouth/themes/brogit-plymouth-theme
-ScriptFile=/usr/share/plymouth/themes/brogit-plymouth/brogit-plymouth-theme.script
+ScriptFile=/usr/share/plymouth/themes/brogit-plymouth-theme/brogit-plymouth-theme.script
