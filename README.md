@@ -1,6 +1,8 @@
 # brogit-plymouth-theme
 Plymouth Splash Theme - Modified Debian 10 FuturePrototype Theme
 
+![](preview.png?raw=true)
+
 ## Getting Started
 
 - Use **preview.sh** to view actual Plymouth splash
