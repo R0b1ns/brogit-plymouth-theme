@@ -1,5 +1,7 @@
 # brogit-plymouth-theme
-Plymouth Splash Theme - Modified Debian 10 FuturePrototype Theme
+Plymouth Splash Theme - Dark & Clean
+
+*Modified Debian 10 FuturePrototype Theme*
 
 ![](preview.png?raw=true)
 
