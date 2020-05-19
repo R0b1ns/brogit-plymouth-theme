@@ -23,3 +23,7 @@ Plymouth Splash Theme - Dark & Clean
 sudo cp -R ./brogit-plymouth-theme /usr/share/plymouth/themes/
 sudo plymouth-set-default-theme brogit-plymouth-theme -R
 ```
+
+## Customizeable Background
+
+If black isn't the right for you, then feel free to edit the `background.png` or rename `background_example.png`
