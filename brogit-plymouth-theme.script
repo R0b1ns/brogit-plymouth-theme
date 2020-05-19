@@ -153,6 +153,22 @@ logo_pos.y = logo_center.y - logo_size/2;
 progress_height = small_dimension * PROGRESS_HEIGHT_PCT;
 progress_pos.y = window_max.height * PROGRESS_POS_PCT.y - progress_height/2;
 
+#------------------------------- Background ----------------------------------------
+bg_image = Image("background.png");
+bg_image_ratio = bg_image.GetWidth() / bg_image.GetHeight();
+if (screen_ratio > bg_image_ratio)
+    bg_scale_factor = window_max.width / bg_image.GetWidth();
+else
+    bg_scale_factor = window_max.height / bg_image.GetHeight();
+scaled_bg_image = bg_image.Scale(bg_image.GetWidth() * bg_scale_factor,
+                                 bg_image.GetHeight() * bg_scale_factor);
+
+# Display background
+bg_sprite = Sprite(scaled_bg_image);
+bg_sprite.SetPosition(Window.GetX() + Window.GetWidth() / 2 - scaled_bg_image.GetWidth() / 2,
+                      Window.GetY() + Window.GetHeight() / 2 - scaled_bg_image.GetHeight() / 2,
+                      -1000);
+
 #------------------------------- Debian ----------------------------------------------
 debian = Image("debian.png");
 # Target same height as logo
@@ -174,13 +190,13 @@ logo_sprite = Sprite(logo);
 logo_sprite.SetPosition(logo_pos.x, logo_pos.y, -50);
 
 
-logo_glow = Image("logo_circle.png");
-logo_glow_scale_factor = logo_size / logo_glow.GetWidth();
-logo_glow[0] = logo_glow.Scale(logo_glow.GetWidth()  * logo_glow_scale_factor,
-                               logo_glow.GetHeight() * logo_glow_scale_factor);
-logo_glow_sprite = Sprite();
-logo_glow_sprite.SetPosition(logo_pos.x, logo_pos.y, -60);
-logo_glow_sprite.SetImage(logo_glow[0]);
+#logo_glow = Image("logo_circle.png");
+#logo_glow_scale_factor = logo_size / logo_glow.GetWidth();
+#logo_glow[0] = logo_glow.Scale(logo_glow.GetWidth()  * logo_glow_scale_factor,
+#                               logo_glow.GetHeight() * logo_glow_scale_factor);
+#logo_glow_sprite = Sprite();
+#logo_glow_sprite.SetPosition(logo_pos.x, logo_pos.y, -60);
+#logo_glow_sprite.SetImage(logo_glow[0]);
 
 
 
@@ -1044,7 +1060,8 @@ fun refresh_callback ()
     }
     #DebugBottom ("refresh_iter=" + refresh_iter + "; anim_status=" + anim_status + "; anim_start_time=" + anim_start_time + "; anim_iter=" + anim_iter);
 }
-Plymouth.SetRefreshFunction (refresh_callback);
+#Deactivated logo_circle
+#Plymouth.SetRefreshFunction (refresh_callback);
 
 #-----------------------------------------Display Normal stuff -----------------------
 #
