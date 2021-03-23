@@ -1,6 +1,6 @@
 [Plymouth Theme]
-Name=brogit theme for Debian 10.0 Buster
-Description=A dark theme that features a red debian 10 logo in a white spinning circle and progress bar
+Name=brogit dark n clean Theme
+Description=A theme that features a red debian logo and progress bar with customizable background
 ModuleName=script
 
 [script]

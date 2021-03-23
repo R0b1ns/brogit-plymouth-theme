@@ -190,16 +190,6 @@ logo_sprite = Sprite(logo);
 logo_sprite.SetPosition(logo_pos.x, logo_pos.y, -50);
 
 
-#logo_glow = Image("logo_circle.png");
-#logo_glow_scale_factor = logo_size / logo_glow.GetWidth();
-#logo_glow[0] = logo_glow.Scale(logo_glow.GetWidth()  * logo_glow_scale_factor,
-#                               logo_glow.GetHeight() * logo_glow_scale_factor);
-#logo_glow_sprite = Sprite();
-#logo_glow_sprite.SetPosition(logo_pos.x, logo_pos.y, -60);
-#logo_glow_sprite.SetImage(logo_glow[0]);
-
-
-
 #------------------------------String functions-------------------------------
 
 # This is the equivalent for strstr()
@@ -1010,58 +1000,6 @@ Plymouth.SetUpdateStatusFunction (update_status_callback);
 #}
 #
 #Plymouth.SetDisplayQuestionFunction (display_question_callback); 
-
-fun rotate_img(source_img, current_step, nb_steps) {
-    angle = Math.Sin(current_step / nb_steps * Math.Pi / 2) * 2 * Math.Pi;
-    #debug_sin = Math.Sin(current_step / nb_steps * Math.Pi / 2);
-    #DebugMedium("Sin = " + debug_sin);
-    rotated_img = source_img.Rotate(angle);
-    return rotated_img;
-}
-
-fun update_glow_anim () {
-    if (global.anim_start_time != global.progress_time && global.anim_status != "running") {
-        global.anim_start_time = global.progress_time;
-        global.anim_iter = 0;
-        global.anim_status = "running";
-    }
-
-    if (global.anim_status == "running") {
-        iter_img = global.logo_glow[global.anim_iter];
-        if (iter_img == NULL) {
-            # Generate rotated image for the glow around the logo on demand.
-            #DebugMedium("Generating rotated image for index " + global.anim_iter);
-            iter_img = rotate_img(logo_glow[0], global.anim_iter, NB_ROTATION_STEPS);
-            global.logo_glow[global.anim_iter] = iter_img;
-        }
-        global.logo_glow_sprite.SetImage(iter_img);
-        global.anim_iter++;
-
-        if (global.anim_iter >= NB_ROTATION_STEPS) {
-            global.anim_status = "stopped";
-        }
-    }
-}
-
-#-----------------------------------------Refresh stuff --------------------------------
-#
-# Calling Plymouth.SetRefreshFunction with a function will set that function to be
-# called up to 50 times every second, e.g.
-#
-# NOTE: if a refresh function is not set, Plymouth doesn't seem to be able to update
-#       the screen correctly
-#
-fun refresh_callback ()
-{
-    global.refresh_iter++;
-    if (global.refresh_iter == NB_REFRESHS_BETWEEN_ANIMS) {
-        global.refresh_iter = 0;
-        update_glow_anim();
-    }
-    #DebugBottom ("refresh_iter=" + refresh_iter + "; anim_status=" + anim_status + "; anim_start_time=" + anim_start_time + "; anim_iter=" + anim_iter);
-}
-#Deactivated logo_circle
-#Plymouth.SetRefreshFunction (refresh_callback);
 
 #-----------------------------------------Display Normal stuff -----------------------
 #
